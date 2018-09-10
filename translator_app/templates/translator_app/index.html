@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" >
+    <style>
+        body {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Добро пожаловать!</h1>
+        <p>
+            Приветствуем Вас на сервисе, позволяющем быстро и просто получить перевод списка слов, а также
+            список синонимов, антонимов и определений для каждого слова. Попробуйте :)
+        </p>
+
+        <p>
+            Просто введите список слов в поле ниже, отметьте галочками то, что хотите получить, и наслаждайтесь результатом.
+        </p>
+
+        <form>
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group">
+                {% for error in field.errors %}
+                <div class="alert alert-danger page-alert">
+                    <button type="button" class="close"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+                    <strong>Oops!</strong> {{ error }}
+                </div>
+
+                {% endfor %}
+
+
+                {{ field }} {{ field.label_tag }}
+            </div>
+            {% endfor %}
+
+            <div class="col-auto my-3">
+              <button type="submit" class="btn btn-primary">Перевести</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $( window ).on('load', function() {
+            var checkboxes = $("form input:checkbox");
+            var parents = checkboxes.parent();
+
+            checkboxes.addClass("custom-control-input");
+            parents.attr('class', 'custom-control custom-checkbox mr-sm-2');
+            parents.wrap("<div class='col-auto my-1'></div>");
+            $("label", parents).addClass("custom-control-label");
+
+            function swap(a, b) {
+                a = $(a); b = $(b);
+                var tmp = $('<span>').hide();
+                a.before(tmp);
+                b.before(a);
+                tmp.replaceWith(b);
+            };
+
+            swap("textarea", $("label", $("textarea").parent()));
+
+            $(".custom-checkbox label").each(function(){
+                $(this).text($(this).text().slice(0,-1));
+            })
+
+            $("body").css("display", "block");
+        });
+    </script>
+</body>
+</html>
