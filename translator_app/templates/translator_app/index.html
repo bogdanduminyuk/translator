@@ -3,41 +3,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Помощник переводчика</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16x16.png' %}">
+
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" >
-    <style>
-        body {
-            display: none;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-sm">
                 <h1>Добро пожаловать!</h1>
-
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm">
                 <p>
                     Приветствуем Вас на сервисе, позволяющем быстро и просто получить перевод списка слов, а также
                     список синонимов, антонимов и определений для каждого слова. Попробуйте :)
                 </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm">
                 <p>
                     Просто введите список слов в поле ниже, отметьте галочками то, что хотите получить, и наслаждайтесь результатом.
                 </p>
-            </div>
-        </div>
-
 
         <form>
             {% csrf_token %}
@@ -50,7 +34,6 @@
                 </div>
 
                 {% endfor %}
-
 
                 {{ field }} {{ field.label_tag }}
             </div>
