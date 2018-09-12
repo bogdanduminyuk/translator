@@ -21,5 +21,8 @@ $( window ).on('load', function() {
         $(this).text($(this).text().slice(0,-1));
     })
 
+    $("button.close").attr("data-dismiss", "alert");
+    $("button.close").attr("aria-label", "Close");
+
     $("body").css("display", "block");
 });
