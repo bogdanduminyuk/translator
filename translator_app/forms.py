@@ -1,3 +1,5 @@
+import re
+
 import django.forms as forms
 from .widgets import *
 
@@ -22,5 +24,9 @@ class InputForm(forms.Form):
     def is_valid(self):
         valid = super(InputForm, self).is_valid()
 
-        for string in self.words.text.split('\n'):
-            pass
+        # TODO: handle wrong cases
+        pattern = r'\w+'
+        matches = re.findall(pattern, self.cleaned_data["words"])
+        print(matches)
+
+        return valid
