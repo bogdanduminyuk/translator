@@ -6,8 +6,7 @@ from translator_app.forms import InputForm
 
 def index(request):
     if request.method == "POST":
-
-        print(request.POST.dict())
+        # request.POST.dict()
 
         form = InputForm(request.POST)
         if form.is_valid():
