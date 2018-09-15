@@ -1,40 +1,43 @@
 {% extends 'translator_app/template.html' %}
 
 {% block page %}
-    <div class="container">
-                <h1>Добро пожаловать!</h1>
-                <p>
-                    Приветствуем Вас на сервисе, позволяющем быстро и просто получить перевод списка слов, а также
-                    список синонимов, антонимов и определений для каждого слова. Попробуйте :)
-                </p>
-                <p>
-                    Просто введите список слов в поле ниже, отметьте галочками то, что хотите получить, и наслаждайтесь результатом.
-                </p>
+<h1>Добро пожаловать!</h1>
+<p>
+    Приветствуем Вас на сервисе, позволяющем быстро и просто получить перевод списка слов, а также
+    список синонимов, антонимов и определений для каждого слова. Попробуйте :)
+</p>
+<p>
+    Просто введите список слов в поле ниже, отметьте галочками то, что хотите получить, и наслаждайтесь результатом.
+</p>
 
-        <form action="#" method="post" >{% csrf_token %}
-            {% for field in form %}
-            <div class="form-group">
-                {% for error in field.errors %}
-                <div class="alert alert-danger page-algert">
-                    <button type="button" class="close"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
-                    <strong>Oops!</strong> {{ error }}
-                </div>
-
-                {% endfor %}
-
-                {{ field }} {{ field.label_tag }}
-            </div>
-            {% endfor %}
-
-            <div class="col-auto my-3">
-              <button type="submit" class="btn btn-primary">Перевести</button>
-            </div>
-        </form>
-        <div class="progress" style="display: none">
-          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>75%
+<form action="#" method="post">{% csrf_token %}
+    {% for field in form %}
+    <div class="form-group">
+        {% for error in field.errors %}
+        <div class="alert alert-danger page-algert">
+            <button type="button" class="close"><span aria-hidden="true">x</span><span class="sr-only">Close</span>
+            </button>
+            <strong>Oops!</strong> {{ error }}
         </div>
-        <div class="progress" style="display: none">
-          <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-        </div>
+
+        {% endfor %}
+
+        {{ field }} {{ field.label_tag }}
     </div>
+    {% endfor %}
+
+    <div class="col-auto my-3">
+        <button type="submit" class="btn btn-primary">Перевести</button>
+    </div>
+</form>
+<div class="progress" style="display: none">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
+         aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+    75%
+</div>
+<div class="progress" style="display: none">
+    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0"
+         aria-valuemax="100">25%
+    </div>
+</div>
 {% endblock %}

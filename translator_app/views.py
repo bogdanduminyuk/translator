@@ -20,3 +20,7 @@ def index(request):
         form = InputForm()
 
     return render(request, 'translator_app/index.html', {'form': form})
+
+
+def loading(request):
+    return render(request, 'translator_app/loading.html', {})
