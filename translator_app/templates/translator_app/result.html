@@ -1,5 +1,82 @@
 {% extends 'translator_app/template.html' %}
 
 {% block page %}
-<h1>Страница результата</h1>
+
+    <h2>Страница результата</h2>
+    <p>В таблице ниже представлен результат работы. Красным подсвечены строки, слова в которых сервер обработать не
+    смог.</p>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-light">
+    <thead class="table-secondary ">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Слово</th>
+        <th scope="col">Перевод</th>
+        <th scope="col">Синонимы</th>
+        <th scope="col">Антонимы</th>
+        <th scope="col">Определения</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="table-success">
+        <th scope="row">1</th>
+        <td>white</td>
+        <td>белый, седой, бледный, серебристый, чистый, белый, белила, белизна, белый цвет, белок</td>
+        <td>
+            <ul>
+                <li>colourless, unpigmented, undyed, bleached, natural;</li>
+                <li>pale, clear, transparent</li>
+            </ul>
+        </td>
+        <td>black</td>
+        <td>
+            <ul>
+                <li>Of the colour of milk or fresh snow, due to the reflection of all visible rays of light;</li>
+                <li>the opposite of black;</li>
+                <li>belonging to or denoting a human group having light-coloured skin (chiefly
+                    used of peoples of European extraction)</li>
+            </ul>
+        </td>
+    </tr>
+    <tr class="table-danger">
+        <th scope="row">2</th>
+        <td>Larry</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr class="table-success">
+        <th scope="row">3</th>
+        <td>brain</td>
+        <td>мозг, мозги, головной мозг, ум, голова, размозжить голову</td>
+        <td>
+            <ul>
+                <li>cerebrum, cerebral matter;</li>
+                <li>intelligence, intellect, intellectual capacity, mental capacity, brainpower, cleverness, wit, wits,
+                    powers of reasoning, reasoning, wisdom, sagacity, acumen, discernment, shrewdness, judgement,
+                    understanding, common sense, sense;
+                </li>
+                <li>mind, head</li>
+            </ul>
+        </td>
+        <td>dunce, idiot</td>
+        <td>
+            <ul>
+                <li>An organ of soft nervous tissue contained in the skull of vertebrates, functioning as the
+                    coordinating centre of sensation and intellectual and nervous activity;
+                </li>
+                <li>intellectual capacity</li>
+            </ul>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+<div class="group no-print">
+    <a class="btn btn-primary" href="#" role="button">Скачать</a>
+    <button type="button" class="btn btn-info" onclick="window.print();">Печать</button>
+</div>
+
 {% endblock %}

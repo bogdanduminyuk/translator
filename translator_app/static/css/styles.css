@@ -2,3 +2,30 @@ body {
     background: lightblue;
     display: none;
 }
+
+table ul {
+    padding-left: 1em;
+}
+
+@media only screen and (max-width: 1200px) {
+    .table {
+        font-size: 0.8em;
+    }
+
+    .table th,
+    .table td {
+        padding: 0.3rem;
+    }
+
+    .container {
+        max-width: max-content;
+     }
+}
+
+@media print
+{
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
