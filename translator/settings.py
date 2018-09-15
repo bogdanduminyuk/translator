@@ -27,6 +27,22 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'bogdanduminyuk.pythonanywhere.com', '192.168.1.253']
 
+# TODO: update menu
+NAV_MENU_LEFT = [
+    {
+        "name": "Главная",
+        "url": "/",
+    },
+    {
+        "name": "Загрузка",
+        "url": "/loading",
+    },
+    {
+        "name": "Результат",
+        "url": "/result",
+    },
+]
+
 
 # Application definition
 
@@ -38,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'translator_app',
+    'menu_generator'
 ]
 
 MIDDLEWARE = [

@@ -24,3 +24,7 @@ def index(request):
 
 def loading(request):
     return render(request, 'translator_app/loading.html', {})
+
+
+def result(request):
+    return render(request, 'translator_app/result.html', {})
