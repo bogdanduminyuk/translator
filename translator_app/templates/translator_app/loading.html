@@ -1,14 +1,13 @@
 {% extends 'translator_app/template.html' %}
 
 {% block page %}
-<div class="progress">
+<h2>Пожалуйста, подождите...</h2>
+<p><i class="fas fa-check-circle"></i> Данные загружены успешно</p>
+<p><i class="fas fa-check-circle"></i> Проверка орфографии</p>
+<p><i class="fas fa-spinner fa-spin"></i> Поиск результатов... 30 из 38. Текущее слово: <strong>brain</strong></p>
+<p id="current_word"></p>
+<div class="progress" style="height: 20px;">
     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
          aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-    75%
-</div>
-<div class="progress">
-    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0"
-         aria-valuemax="100">25%
-    </div>
 </div>
 {% endblock %}
