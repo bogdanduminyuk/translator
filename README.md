@@ -28,3 +28,11 @@
 | :------: | ------ | ------ | ------ | ------ | ------ |
 | 1 | white | белый, седой, бледный, серебристый, чистый, белый, белила, белизна, белый цвет, белок | colourless, unpigmented, undyed, bleached, natural; pale, clear, transparent | black | Of the colour of milk or fresh snow, due to the reflection of all visible rays of light; the opposite of black; belonging to or denoting a human group having light-coloured skin (chiefly used of peoples of European extraction)
 | 2 | brain | мозг, мозги, головной мозг, ум, голова, размозжить голову | cerebrum, cerebral matter; intelligence, intellect, intellectual capacity, mental capacity, brainpower, cleverness, wit, wits, powers of reasoning, reasoning, wisdom, sagacity, acumen, discernment, shrewdness, judgement, understanding, common sense, sense; mind, head | dunce, idiot | An organ of soft nervous tissue contained in the skull of vertebrates, functioning as the coordinating centre of sensation and intellectual and nervous activity; intellectual capacity
+
+# Зависимости проекта
+
+| Пакет | Версия |
+| --- | :---: |
+| Django | 2.1.1 |
+| pytz (от Django) | 2018.5 |
+| django-menu-generator | 1.0.4 |
