@@ -29,4 +29,7 @@ class InputForm(forms.Form):
         matches = re.findall(pattern, self.cleaned_data["words"])
         print(matches)
 
+        # valid = False
+        # self.add_error("words", "Wrong word")
+
         return valid
