@@ -4,10 +4,50 @@
 <h2>Пожалуйста, подождите...</h2>
 <p><i class="fas fa-check-circle"></i> Данные загружены успешно</p>
 <p><i class="fas fa-check-circle"></i> Проверка орфографии</p>
-<p><i class="fas fa-spinner fa-spin"></i> Поиск результатов... 30 из 38. Текущее слово: <strong>brain</strong></p>
+<p><i class="fas fa-spinner fa-spin"></i> Поиск результатов... <span class="current_idx">0</span> из <span class="total_idx">{{ total }}</span>. Текущее слово: <strong class="current_word">{{current_word}}</strong></p>
 <p id="current_word"></p>
 <div class="progress" style="height: 20px;">
-    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
-         aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0"
+         aria-valuemin="0" aria-valuemax="{{ total }}" style="width: 0%"></div>
 </div>
+{% endblock %}
+
+{% block customscript %}
+$(document).ready(function() {
+	var max = $(".progress-bar").attr("aria-valuemax");
+	var current = 0;
+
+	function sendAjax() {
+		$.ajax({
+			url: "/loading",
+
+			data: {
+				progress: "true",
+				idx: current
+			},
+			
+			dataType: "json",
+
+			success: function(data) {
+				console.log("Success ajax");
+				console.log(data);
+				current = data["idx"];
+
+				$(".current_idx").text(data.idx);
+				$(".current_word").text(data.word);
+				$(".total_idx").text(data.total);
+				$(".progress-bar").css("width", current/max*100 + "%");
+			},
+
+			complete: function(data) {
+				if ('url' in data.responseJSON)
+					window.location.href = data.responseJSON.url;
+				else
+					setTimeout(sendAjax, 1000);
+			}
+		});
+	}
+
+	sendAjax();
+});
 {% endblock %}
